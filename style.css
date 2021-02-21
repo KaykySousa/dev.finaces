@@ -1,0 +1,462 @@
+/* Global */
+
+:root {
+    --background: #f0f2f5;
+    --background-light: #ffffff86;
+    --background-modal: #f0f2f5;
+    --background-header: #2d4a22;
+    --content-color-1: #363f5f;
+    --content-color-2: #969cb3;
+    --content-color-3: #ffffff;
+    --content-color-4: #969cb3;
+    --small-color: #000;
+    --a-color: #49aa26;
+    --a-color-hover: #3dd705;
+    --button-color: #49aa26;
+    --button-color-hover: #3dd705;
+    --button-cancel-color: #e92929;
+    --background-card-color: #ffffff;
+    --background-card-total-color: #49aa26;
+    --income: #12a454;
+    --expense: #e92929;
+    --background-table: #ffffff;
+    --background-modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+.omni-theme:root {
+    --background: #1B1323;
+    --background-light: #241a2e;
+    --background-modal: #1B1323;
+    --background-header: #140E1B;
+    --content-color-1: #f0f2f5;
+    --content-color-2: #ffffff;
+    --content-color-3: #ffffff;
+    --content-color-4: #969cb3;
+    --small-color: #fff;
+    --a-color: #49aa26;
+    --a-color-hover: #3dd705;
+    --button-color: #49aa26;
+    --button-color-hover: #3dd705;
+    --button-cancel-color: #e92929;
+    --background-card-color: #2d1d3a;
+    --background-card-total-color: linear-gradient(90deg, rgba(223,43,163,1) 0%, rgba(182,35,133,1) 100%);
+    --income: #3dd705;
+    --expense: #e92929;
+    --background-table: linear-gradient(180deg, rgb(122, 43, 99) 0%, rgb(143, 50, 117) 100%);
+    --background-modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75%;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: min(90vw, 800px);
+    margin: auto;
+    margin-bottom: 35px;
+}
+
+/* Titles */
+
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+
+    color: var(--content-color-1);
+
+    font-weight: normal;
+}
+
+/* Links & Buttons */
+
+a {
+    color: var(--a-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--a-color-hover);
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    color: var(--content-color-3);
+    background-color: var(--button-color);
+
+    padding: 0;
+
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 93.75%;
+}
+
+button:hover {
+    background-color: var(--button-color-hover);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-size: 93.75%;
+}
+.button.cancel {
+    color: var(--button-cancel-color);
+    border: 2px var(--button-cancel-color) solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
+
+
+/* Header */
+
+header {
+    background-color: var(--background-header);
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+
+#theme-selector {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 10px 0px 0px;
+    height: 40px;
+    width: 70px;
+    background-color: black;
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 5px;
+    
+    box-shadow: #ffffff 0px 0px 2px 1px;
+
+}
+
+#theme-selector .checkbox-ball {
+    transition: margin-left 0.2s;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+
+    margin-left: 0px;
+
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-image: url("./assets/sun.svg");
+}
+
+#theme-selector.checked .checkbox-ball {
+    margin-left: 30px;
+    background-image: url("./assets/moon.svg");
+}
+
+#logo {
+    color: var(--content-color-3);
+    font-weight: 100;
+}
+
+/* Balance */
+
+#balance {
+    margin-top: -8rem;
+}
+
+#balance h2 {
+    color: var(--content-color-3);
+    margin-top: 0;
+    
+}
+
+/* Cards */
+
+.card {
+    background-color: var(--background-card-color);
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    color: var(--content-color-1);
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+
+.card.total {
+    background: var(--background-card-total-color);
+    color: var(--content-color-3);
+}
+
+/* Transaction */
+
+#transaction {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+}
+
+#transaction h2 {
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Table */
+
+#data-table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    color: var(--content-color-2);
+    white-space: nowrap;
+
+}
+
+table thead tr th:first-child, table tbody tr td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child, table tbody tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table tbody tr {
+    opacity: 0.7;
+    background: var(--background-table);
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+table tbody tr td img {
+    cursor: pointer;
+    height: 28px;
+}
+
+table thead tr {
+    background: var(--background-table);
+}
+
+table thead th {
+    padding: 1rem 2rem;
+
+    font-weight: normal;
+    text-align: left;
+
+}
+
+table tbody td {
+
+    padding: 1rem 2rem;
+    font-weight: normal;
+}
+
+td.description {
+    color: var(--content-color-1);
+}
+
+td.income {
+    font-weight: 600;
+    color: var(--income);
+}
+
+td.expense {
+    font-weight: 600;
+    color: var(--expense);
+}
+
+/* Modal */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--background-modal-overlay);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-overlay .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.modal {
+    background-color: var(--background-modal);
+    padding: 2.4rem;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Form */
+
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+#form form input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    color: var(--small-color);
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--content-color-4);
+    opacity: 0.6;
+}
+
+/* Graphics */
+
+.graphics {
+    background-color: var(--background-light);
+    padding: 10px 0px;
+    border-radius: 0.25rem;
+}
+
+/* Responsive */
+
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .container {
+        margin-bottom: 35px; /* Evita que o conteúdo principal entre por baixo do footer */
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 70px;
+        background-color: var(--background);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--content-color-4);
+        opacity: 1;
+        padding: 0;
+    }
+
+    .graphics {
+        margin-bottom: 80px;
+    }
+}
